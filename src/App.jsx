@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import ContactForm from "./components/ContactForm";
 import SearchBox from "./components/SearchBox";
 import ContactList from "./components/ContactList";
-import "./App.css";
+import css from './App.module.css';
 
 export default function App() {
   const initialContacts = [
@@ -13,8 +13,6 @@ export default function App() {
     { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
   ];
 
-  // const [contacts, setContacts] = useState(initialContacts);
-  
   const [contacts, setContacts] = useState(() => {
     const saved = localStorage.getItem('contacts');
     return saved ? JSON.parse(saved) : initialContacts;
@@ -33,14 +31,14 @@ export default function App() {
 
   const visibleContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  );  
 
   const deleteContact = (id) => {
     setContacts((prev) => prev.filter((contact) => contact.id !== id));
   };
 
   return (
-    <div className="phonebook-container">
+    <div className={css.container} >
       <h1>Phonebook</h1>
       <ContactForm onAdd={addContact} />
       <SearchBox filter={filter} onFilterChange={setFilter} />

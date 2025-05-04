@@ -26,20 +26,20 @@ export default function ContactForm({ onAdd }) {
         resetForm();
       }}
     >
-      <Form>
-        <label>
+      <Form className={css.form}>
+        <label className={css.label}>
           Name:
-          <Field name="name" />
-          <ErrorMessage name="name" component="div" />
+          <Field className={css.field} name="name" />
+          <ErrorMessage className={css.error}name="name" component="div" />
         </label>
         <br />
-        <label>
+        <label className={css.label}>
           Number:
-          <Field name="number" />
-          <ErrorMessage name="number" component="div" />
+          <Field className={css.field} name="number" />
+          <ErrorMessage className={css.error}name="number" component="div" />
         </label>
         <br />
-        <button type="submit">Add Contact</button>
+        <button className={css.button} type="submit">Add Contact</button>
       </Form>
     </Formik>
     

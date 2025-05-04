@@ -4,7 +4,7 @@ import Contact from './Contact'
 
 export default function ContactList({ contacts, onDelete }) {
   return (
-  <ul>
+  <ul className={css.list} >
     {contacts.map(contact => (
       <Contact
         key={contact.id}
