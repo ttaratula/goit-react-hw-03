@@ -1,0 +1,17 @@
+import css from './ContactList.module.css'
+import Contact from './Contact'
+
+
+export default function ContactList({ contacts, onDelete }) {
+  return (
+  <ul>
+    {contacts.map(contact => (
+      <Contact
+        key={contact.id}
+        {...contact}
+        onDelete={() => onDelete(contact.id)}
+      />
+    ))}
+  </ul>
+);
+}
