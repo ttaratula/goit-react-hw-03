@@ -13,11 +13,13 @@ export default function App() {
     { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
   ];
 
+
   const [contacts, setContacts] = useState(() => {
-    const saved = localStorage.getItem('contacts');
-    return saved ? JSON.parse(saved) : initialContacts;
+    return JSON.parse(localStorage.getItem("saved-contacts")) ?? initialContacts;
   });
   
+
+
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
