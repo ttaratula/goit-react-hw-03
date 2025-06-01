@@ -19,4 +19,3 @@ export const { addContact, deleteContact } = contactsSlice.actions;
 export default contactsSlice.reducer;
 
 
-s
