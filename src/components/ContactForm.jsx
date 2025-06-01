@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../redux/contactsSlice';
+import { nanoid } from 'nanoid';
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
@@ -31,7 +32,12 @@ export default function ContactForm() {
       return;
     }
 
-    dispatch(addContact(values));
+    const contactWithId = {
+      id: nanoid(),
+      ...values,
+    };
+
+    dispatch(addContact(contactWithId));
     resetForm();
   };
 
